@@ -11,7 +11,7 @@ const auth_route = require("./src/handlers/auth/auth_handler");
 const partner_route = require("./src/handlers/partners/partners_handler");
 
 // default server port
-const SERVER_PORT = 3000;
+const SERVER_PORT = 8080;
 
 // request body parser
 app.use(body_parser.json());
