@@ -2,6 +2,7 @@ const db_service = require("../../../utils/db/service");
 const { parse_response } = require("../../../utils/helper");
 const { logger } = require("../../../utils/logger");
 const config = require("../../../config/settings");
+const jwt = require("jsonwebtoken");
 const {
   success,
   failure,
@@ -51,7 +52,7 @@ module.exports.login = async (req, res) => {
     );
 
     // if result does not exist
-    if (!result || (result && result.exist && result.exist == 0)) {
+    if (!result || (result && result.exist == 0)) {
       return failure(400, "Invalid partner_referral_code in the payload.", res);
     }
 
@@ -67,7 +68,7 @@ module.exports.login = async (req, res) => {
     );
 
     // if result does not exist
-    if (!result || (result && result.exist && result.exist == 0)) {
+    if (!result || (result && result.exist == 0)) {
       return failure(
         400,
         "Invalid user_name or password OR user does not mapped with partner.",

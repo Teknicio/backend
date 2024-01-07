@@ -1,8 +1,8 @@
 const db_config = {
-  host: "68.178.157.149",
-  user: "db_root",
-  password: "Yi{ix+g$g3ZF",
-  database: "teknicio_lab",
+  host: "62.72.12.82",
+  user: "admin_pathlab_db",
+  password: "pathlab@2024",
+  database: "admin_pathlab_db",
   port: 3306,
 };
 
