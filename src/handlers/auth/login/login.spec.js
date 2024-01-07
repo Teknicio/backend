@@ -19,7 +19,7 @@ describe("Test case for the /login api", () => {
   // code 200, if all input valid
   it("Should return 200, if payload is valid", async () => {
     const body = {
-      partner_referral_code: "PARTN00001",
+      partner_referral_code: "PARTN00001", 
       user_name: "john_doe",
       password: "123",
     };
