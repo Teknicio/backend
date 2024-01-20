@@ -51,6 +51,8 @@ module.exports.login = async (req, res) => {
       )
     );
 
+    
+
     // if result does not exist
     if (!result || (result && result.exist == 0)) {
       return failure(400, "Invalid partner_referral_code in the payload.", res);

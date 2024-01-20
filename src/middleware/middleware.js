@@ -25,10 +25,12 @@ module.exports.middleware = (req, res, next) => {
     const decoded = jwt.verify(token, config.secret_key);
     req.user = decoded;
 
+    console.log("Verified");
+
     // return next
     return next();
   } catch (e) {
-    logger.error("Error in checking token validation ::: ", err);
+    logger.error("Error in checking token validation ::: ", e);
     return failure(401, "Invalid token.", res);
   }
 };
