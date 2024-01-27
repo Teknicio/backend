@@ -5,6 +5,7 @@ const body  = require("express-validator");
 
 const { register } = require("./register/register");
 const { registerValidator } = require("../../validators/register/register_validator");
+const { fetch_doctor_lab } = require("./lab_and_doctor/fetch_doctor_lab");
 
 
 // all the partners routes
@@ -37,6 +38,9 @@ checkValidationRegister,
 
 
  register);
+
+
+ router.get("/getDoctorAndLab", middleware, fetch_doctor_lab);
 
  function checkValidationRegister(req, res, next){
     const result = body.validationResult(req);
