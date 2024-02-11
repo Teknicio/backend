@@ -5,6 +5,6 @@ module.exports = {
   },
 
   fetch_tests(id){
-    return `SELECT * FROM  subcategory WHERE id="${id}";`;
+    return `SELECT * FROM  subcategory WHERE categoryid="${id}";`;
   }
 };
