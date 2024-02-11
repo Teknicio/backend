@@ -6,6 +6,9 @@ const body  = require("express-validator");
 const { register } = require("./register/register");
 const { registerValidator } = require("../../validators/register/register_validator");
 const { fetch_doctor_lab } = require("./lab_and_doctor/fetch_doctor_lab");
+const { fetch_tests, fetch_categories } = require("./tests/queries");
+const { fetch_test_by_id } = require("./tests/fetch_tests");
+const { fetch_all_categories } = require("./tests/fetch_categories");
 
 
 // all the partners routes
@@ -39,8 +42,20 @@ checkValidationRegister,
 
  register);
 
+ router.post("/getTest",middleware, 
+
+
+[
+    body.body('id', 'Cannot be empty').not().isEmpty(),
+]
+,
+checkValidationTest,
+ fetch_test_by_id);
+
 
  router.get("/getDoctorAndLab", middleware, fetch_doctor_lab);
+
+ router.get("/getCategories", middleware, fetch_all_categories);
 
  function checkValidationRegister(req, res, next){
     const result = body.validationResult(req);
@@ -50,6 +65,21 @@ checkValidationRegister,
 
     res.status(422).json({ errors: result.array() });
 }
+
+
+
+
+
+
+function checkValidationTest(req, res, next){
+    const result = body.validationResult(req);
+    if (result.isEmpty()) {
+        return next();
+    }
+
+    res.status(422).json({ errors: result.array() });
+}
+
 
  
 
