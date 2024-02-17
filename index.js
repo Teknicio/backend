@@ -1,7 +1,7 @@
 const express = require("express");
 const body_parser = require("body-parser");
 const app = express();
-const multer = require('multer');
+var cors = require('cors')
 
 // logger
 const { logger } = require("./src/utils/logger");
@@ -17,20 +17,12 @@ const lab_report_route = require("./src/handlers/lab_report/lab_report_page_hand
 // default server port
 const SERVER_PORT = 3000;
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/');
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname);
-  },
-});
 
-const upload = multer({ storage });
 
 // request body parser
 app.use(body_parser.json());
 app.use(body_parser.urlencoded({ extended: true }));
+app.use(cors());
 
 // use routes
 app.use(test_route);
