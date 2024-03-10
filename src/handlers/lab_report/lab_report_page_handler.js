@@ -33,7 +33,4 @@ router.get("/getAllReport",middleware, getAllReport);
 router.post("/uploadReport", upload.single('file'), uploadReport);
 
 
-
-
-
 module.exports = router;
