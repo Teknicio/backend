@@ -8,6 +8,7 @@ const multer = require('multer');
 
 const { uploadReport } = require("./upload_report/upload_report");
 const { getAllReport } = require("./all_report/all_report");
+const { updatePayment } = require("./update_payment/updatepayment");
 
 
 const storage = multer.diskStorage({
@@ -28,6 +29,8 @@ router.get("/getPendingReport",middleware, getPendingReport);
 router.get("/getCompletedReport",middleware, getCompletedReport);
 
 router.get("/getAllReport",middleware, getAllReport);
+
+router.post("/updatePayment",middleware, updatePayment);
 
 
 router.post("/uploadReport", upload.single('file'), uploadReport);
