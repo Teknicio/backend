@@ -12,7 +12,7 @@ module.exports.updatePayment = async (req, res) => {
     let result;
     result = parse_response(
       await db_service.excute_statement(
-        update_payment({payment:req.body.payment})
+        update_payment({payment:req.body.payment, reportid: req.body.reportid})
       )
     );
 
